@@ -1,17 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EOTWSG | Pre-Order</title>
+    <title>EOTWSG | End of the World Survival Guide</title>
     
     <!-- OpenGraph / Facebook / SEO -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eotwsg.com/">
     <meta property="og:title" content="EOTWSG | End of the World Survival Guide">
     <meta property="og:description" content="A comprehensive manual for preparedness and resilience. Don't just survive. Build a better boat.">
-    <meta property="og:image" content="https://lh3.googleusercontent.com/sitesv/AAzXCkfkJv42-iv3KN_Jm7WIFud9PUrXFqgPmU4XyQou-NwWlIYWHc-08ZJcZMbr2UCubGFYtcCtrUp7OpyE5xrUX2TenThFx6lYZ5wl5i2lkBzk4FFnMu3Ul8aTzgJFZhJts2b1lGvqT3_FqgArnp5x8stpCBdeiceqqqfqPZv3r7dhoLT98skSU5FXDdCxlLksSJO7aCI9ayU009jnUsq8zvyMXWDIhhOUrYkbvig=w1280">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/sitesv/AAzXCkeSBtlN0NQxr3gE9HC9AvVLXm3e3YhN4XmEGiDkbnB4K_yh9-q6-wZ1UjnI6vvpUiUb2cquNIxliZzpuKWAZKeL4amMnQ4uaOTuAmbzcr47cyiUrnusCiKtGkMX8CAp64HE8pHZD4M5SK7_a3YkRugvb_PsJ0DKveazRenlW4ChkBj_b3uLXnLX6oJWvTbDP4VmIZXGIOwVNNkxkpqvnHmy1-8xbjWO-8h5n9g=w1280">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "End of the World Survival Guide",
+      "author": {
+        "@type": "Person",
+        "name": "Matthew Danielson"
+      },
+      "description": "A tactical minimalist manual for preparedness, resilience, and sovereignty.",
+      "genre": "Survivalism",
+      "publisher": {
+        "@type": "Organization",
+        "name": "EOTWSG Project"
+      }
+    }
+    </script>
 
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -35,7 +53,7 @@
             background-color: #f97316;
             color: white;
         }
-        /* Custom scrollbar for tactical feel */
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -78,6 +96,8 @@
             0% { bottom: 100%; }
             100% { bottom: -100px; }
         }
+
+        .preserve-3d { transform-style: preserve-3d; }
     </style>
 <script type="importmap">
 {

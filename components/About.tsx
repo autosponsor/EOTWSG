@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 
 const About: React.FC = () => {
@@ -25,7 +24,7 @@ const About: React.FC = () => {
             <img 
               src={authorImageUrl}
               alt="Matthew Danielson" 
-              className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000"
+              className="w-full h-full object-cover opacity-80"
             />
           </div>
           <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-orange-500/10 border border-orange-500/20 backdrop-blur-sm p-4 flex flex-col justify-end shadow-lg">
@@ -36,27 +35,21 @@ const About: React.FC = () => {
 
         <div className={`space-y-8 order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
           <div className="space-y-4">
-            <h2 className="text-4xl font-bold font-['Oswald'] uppercase tracking-tight text-white">
+            <h2 className="text-4xl font-bold uppercase tracking-tight text-white">
               About the <span className="text-orange-500">Author</span>
             </h2>
             <p className="text-orange-500/80 text-xs font-bold tracking-[0.3em] uppercase">Matthew Danielson</p>
           </div>
 
           <div className="space-y-6 text-gray-400 text-sm leading-loose uppercase tracking-widest">
-            <p>
-              Matthew Danielson is a researcher and outdoorsman whose expertise is rooted in a lifetime of firsthand experience.
-            </p>
-            <p>
-              Born and raised in Ontario, Canada, his foundation in self-reliance began in the rugged Canadian wilderness. Eschewing traditional academic or military paths, Matthew has built his knowledge base through years of rigorous independent research of public data and official documents.
-            </p>
-            <p>
-              His "boots-on-the-ground" education combined with practical experience navigating remote waterways and living off the land serves as the filter through which this entire guide was written.
-            </p>
+            <p>Matthew Danielson is a researcher and outdoorsman whose expertise is rooted in a lifetime of firsthand experience.</p>
+            <p>Born and raised in Ontario, Canada, his foundation in self-reliance began in the rugged Canadian wilderness. Eschewing traditional academic or military paths, Matthew build his knowledge through rigorous independent research.</p>
+            <p>His education, combined with practical experience navigating remote waterways, serves as the filter through which this entire guide was written.</p>
           </div>
 
           <div className="pt-4 border-l-2 border-orange-500 pl-6 bg-slate-900/10 p-4">
-            <p className="italic text-gray-400 text-sm leading-relaxed">
-              "This guide is an antidote to dependency. It is not a collection of fear-mongering scenarios, but a practical, actionable manual for reclaiming personal sovereignty."
+            <p className="italic text-gray-400 text-sm leading-relaxed uppercase tracking-tighter">
+              "This guide is an antidote to dependency. Reclaim your sovereignty."
             </p>
           </div>
         </div>

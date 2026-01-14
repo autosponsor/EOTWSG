@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Book3D: React.FC = () => {
@@ -8,7 +7,6 @@ const Book3D: React.FC = () => {
     <div className="relative group cursor-pointer" style={{ perspective: '1500px' }}>
       <div 
         className="w-[280px] h-[400px] relative transition-transform duration-1000 ease-out preserve-3d group-hover:rotate-y-[-28deg] group-hover:rotate-x-[8deg]"
-        style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Spine */}
         <div 
@@ -35,9 +33,7 @@ const Book3D: React.FC = () => {
             backgroundPosition: 'center'
           }}
         >
-          {/* Glint Animation Overlay */}
           <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-          
           <div className="absolute inset-0 bg-black/10 pointer-events-none"></div>
         </div>
 
@@ -48,7 +44,6 @@ const Book3D: React.FC = () => {
         ></div>
       </div>
       
-      {/* Dynamic Shadow */}
       <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-[90%] h-12 bg-black/60 blur-3xl rounded-full group-hover:scale-x-110 transition-transform duration-700"></div>
     </div>
   );

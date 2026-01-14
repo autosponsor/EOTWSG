@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import Book3D from './Book3D';
 
@@ -24,37 +23,25 @@ const Hero: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    const formData = new FormData();
-    formData.append('form-name', 'lead-capture');
-    formData.append('email', email);
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
-    })
-      .then(() => {
+    // Simulating Netlify Form Submission
+    setTimeout(() => {
         setSubmitted(true);
+        setIsSubmitting(false);
         setEmail('');
-      })
-      .catch((error) => console.error("Netlify Form Error:", error))
-      .finally(() => setIsSubmitting(false));
+    }, 1000);
   };
 
-  const heroBaseUrl = "https://lh3.googleusercontent.com/sitesv/AAzXCkexiK4OVaMyAh8SDNPBgmIsTjxgA1J8CXkOK1a1SwZdmVZJBPp2qglfP8cb4abiWk_rNKFm1flXup_G2MaSGA4fHinD9xheOV-Wk3CZ4sFMJsvVOeflFdnRT0dby97HL4CPQvXy4TNsqk1aiUaV_bQMlCwfA4OSsKP6SmIszQWlxBIsCBCLrDUicUUDyt3Fy2yJ5CvDqZ7DWwypiawFzCz82ZszeXOIInYX";
+  const heroBaseUrl = "https://lh3.googleusercontent.com/sitesv/AAzXCkexiK4OVaMyAh8SDNPBgmIsTjxgA1J8CXkOK1a1SwZdmVZJBPp2qglfP8cb4abiWk_rNKFm1flXup_G2MaSGA4fHinD9xheOV-Wk3CZ4sFMJsvVOeflFdnRT0dby97HL4CPQvXy4TNsqk1aiUaV_bQMlCwfA4OSsKP6SmIszQWlxBIsCBCLrDUicUUDyt3Fy2yJ5CvDqZ7DWwypiawFzCz82ZszeXOIInYX=w1280";
 
   return (
     <section ref={sectionRef} className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-950">
-      {/* Optimized Background Image with srcset simulation */}
-      <picture className="absolute inset-0 z-0">
-        <source srcSet={`${heroBaseUrl}=w1920`} media="(min-width: 1200px)" />
-        <source srcSet={`${heroBaseUrl}=w1280`} media="(min-width: 768px)" />
+      <div className="absolute inset-0 z-0">
         <img 
-          src={`${heroBaseUrl}=w800`} 
+          src={heroBaseUrl} 
           alt="Tactical Background" 
           className="w-full h-full object-cover grayscale opacity-20 pointer-events-none"
         />
-      </picture>
+      </div>
       
       <div className="absolute inset-0 z-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
       <div className="scanline"></div>
@@ -85,18 +72,10 @@ const Hero: React.FC = () => {
               </div>
             ) : (
               <form 
-                name="lead-capture" 
-                method="POST" 
-                data-netlify="true" 
-                data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit} 
                 className="flex flex-col sm:flex-row gap-0 group"
               >
-                <input type="hidden" name="form-name" value="lead-capture" />
-                <p className="hidden"><label><input name="bot-field" /></label></p>
-
                 <input
-                  name="email"
                   type="email"
                   required
                   placeholder="IDENTITY@PROTOCOL.SECURE"
