@@ -18,12 +18,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-    # Example CSP: tighten for production. Replace/extend with allowed domains you actually use.
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://identity.netlify.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https://lh3.googleusercontent.com; connect-src 'self' https://api.yourserver.com; frame-ancestors 'none';"
+    # This policy allows scripts, styles, and images from ANY URL (*), plus inline code.
+    Content-Security-Policy = "default-src 'self'; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob:; font-src * data:; connect-src *; frame-src *;"
 
 
