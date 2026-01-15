@@ -2,9 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import Book3D from './Book3D';
 
 const Hero: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -18,18 +15,6 @@ const Hero: React.FC = () => {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulating Netlify Form Submission
-    setTimeout(() => {
-        setSubmitted(true);
-        setIsSubmitting(false);
-        setEmail('');
-    }, 1000);
-  };
 
   const heroBaseUrl = "https://lh3.googleusercontent.com/sitesv/AAzXCkexiK4OVaMyAh8SDNPBgmIsTjxgA1J8CXkOK1a1SwZdmVZJBPp2qglfP8cb4abiWk_rNKFm1flXup_G2MaSGA4fHinD9xheOV-Wk3CZ4sFMJsvVOeflFdnRT0dby97HL4CPQvXy4TNsqk1aiUaV_bQMlCwfA4OSsKP6SmIszQWlxBIsCBCLrDUicUUDyt3Fy2yJ5CvDqZ7DWwypiawFzCz82ZszeXOIInYX=w1280";
 
@@ -65,33 +50,27 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="max-w-md pt-4">
-            {submitted ? (
-              <div className="p-5 bg-orange-500/10 border border-orange-500/30 rounded-sm text-orange-400 font-bold uppercase tracking-[0.2em] text-xs animate-pulse flex items-center gap-3">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                Transmission Received. Entry Recorded.
-              </div>
-            ) : (
-              <form 
-                onSubmit={handleSubmit} 
-                className="flex flex-col sm:flex-row gap-0 group"
+            <form 
+              name="email-signup"
+              method="POST"
+              data-netlify="true"
+              className="flex flex-col sm:flex-row gap-0 group"
+            >
+              <input type="hidden" name="form-name" value="email-signup" />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="IDENTITY@PROTOCOL.SECURE"
+                className="flex-grow bg-slate-900/50 border border-slate-700 border-r-0 px-5 py-4 text-xs focus:outline-none focus:border-orange-500 focus:bg-slate-900 transition-all uppercase tracking-widest text-white placeholder:text-gray-600 backdrop-blur-md"
+              />
+              <button
+                type="submit"
+                className="bg-orange-600 hover:bg-orange-500 text-white font-['Oswald'] px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-all hover:scale-x-105 active:scale-95"
               >
-                <input
-                  type="email"
-                  required
-                  placeholder="IDENTITY@PROTOCOL.SECURE"
-                  className="flex-grow bg-slate-900/50 border border-slate-700 border-r-0 px-5 py-4 text-xs focus:outline-none focus:border-orange-500 focus:bg-slate-900 transition-all uppercase tracking-widest text-white placeholder:text-gray-600 backdrop-blur-md"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-orange-600 hover:bg-orange-500 text-white font-['Oswald'] px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-all hover:scale-x-105 active:scale-95 disabled:opacity-50"
-                >
-                  {isSubmitting ? 'SYNCING...' : 'INITIATE'}
-                </button>
-              </form>
-            )}
+                INITIATE
+              </button>
+            </form>
             <div className="flex items-center gap-2 mt-4 opacity-40">
               <span className="w-8 h-[1px] bg-gray-600"></span>
               <p className="text-[9px] text-gray-500 uppercase tracking-[0.3em]">

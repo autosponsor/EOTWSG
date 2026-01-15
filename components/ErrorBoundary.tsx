@@ -1,20 +1,20 @@
 
-import React, { Component, ErrorInfo, ReactNode } from 'react';
-
-interface Props {
-  children: ReactNode;
-}
+import React, { Component, ErrorInfo } from 'react';
 
 interface State {
   hasError: boolean;
 }
 
-class ErrorBoundary extends Component<Props, State> {
-  public state: State = {
+interface Props {
+  children: React.ReactNode;
+}
+
+class ErrorBoundary extends Component<Props> {
+  public state = {
     hasError: false
   };
 
-  public static getDerivedStateFromError(_: Error): State {
+  public static getDerivedStateFromError(_: Error) {
     return { hasError: true };
   }
 
@@ -42,7 +42,6 @@ class ErrorBoundary extends Component<Props, State> {
       );
     }
 
-    // Fix: Access children via this.props.children in class components
     return this.props.children;
   }
 }
