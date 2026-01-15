@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Book3D: React.FC = () => {
-  const coverImageUrl = "https://lh3.googleusercontent.com/sitesv/AAzXCkeSBtlN0NQxr3gE9HC9AvVLXm3e3YhN4XmEGiDkbnB4K_yh9-q6-wZ1UjnI6vvpUiUb2cquNIxliZzpuKWAZKeL4amMnQ4uaOTuAmbzcr47cyiUrnusCiKtGkMX8CAp64HE8pHZD4M5SK7_a3YkRugvb_PsJ0DKveazRenlW4ChkBj_b3uLXnLX6oJWvTbDP4VmIZXGIOwVNNkxkpqvnHmy1-8xbjWO-8h5n9g=w1280";
+  const coverImageUrl = "https://lh3.googleusercontent.com/sitesv/AAzXCkcQlvrJ214cA3V86Z8rnip8syF5DNcOoY4fyGtQaAjL8D1YZmxRXlFvDcWXb3rhc0paykycjBvSoQwqoAZKzaZre_PpmEONEfXHN9Q1BjuKHmQTvauM4cS1C-plJWCnINWcIJgpLr3cGlBfzwaDyXFqOuVR7Arta6vdtyrZQ4JYmKJEn4HdWPMGz2J7UpHTBX8kFfXLM-SLzU7k8EwuHSBx1U8nGXDoR5cZuSs=w1280;
 
   return (
     <div className="relative group cursor-pointer" style={{ perspective: '1500px' }}>
