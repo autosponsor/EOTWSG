@@ -1,5 +1,6 @@
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
 
 [build.processing]
   [build.processing.css]
@@ -26,3 +27,4 @@
     Referrer-Policy = "no-referrer"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     Content-Security-Policy = "frame-ancestors 'none';"
+
