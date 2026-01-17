@@ -16,7 +16,8 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const heroBaseUrl = "https://lh3.googleusercontent.com/sitesv/AAzXCkexiK4OVaMyAh8SDNPBgmIsTjxgA1J8CXkOK1a1SwZdmVZJBPp2qglfP8cb4abiWk_rNKFm1flXup_G2MaSGA4fHinD9xheOV-Wk3CZ4sFMJsvVOeflFdnRT0dby97HL4CPQvXy4TNsqk1aiUaV_bQMlCwfA4OSsKP6SmIszQWlxBIsCBCLrDUicUUDyt3Fy2yJ5CvDqZ7DWwypiawFzCz82ZszeXOIInYX=w1280";
+  // Updated to point to your public image folder
+  const heroBaseUrl = "/images/background.png";
 
   return (
     <section ref={sectionRef} className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-950">
