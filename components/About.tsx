@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const About: React.FC = () => {
-  const authorImageUrl = "https://lh3.googleusercontent.com/sitesv/AAzXCkfWkJHGa0nL4kdwz0wFh293gkr_8gYteS0vfMpidYkhrh_TQbijlc1Dk-8LQQpsPK6JP_wZy92PiAdkQKaxTVI3kLdJmyPySjxcfq-XWZ1mBAFML9DE5t-22eam12TDJRoIMAAZNbuD21GSR8aYhabrrJfIKfaRTFRkPB3oEjxv9ajVeX4HRlZ8Wd0Z8NYiKOjSwVx8K-1byxsEv9g3pUnNa2Un8NX_zs-4ToI=w1280";
+  // CORRECTED: Pointing to the .jpg file in your list
+  const authorImageUrl = "/images/openbook.jpg";
+  
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -23,7 +25,8 @@ const About: React.FC = () => {
           <div className="aspect-square bg-slate-900 overflow-hidden grayscale contrast-125 rounded-sm border border-slate-800 shadow-2xl">
             <img 
               src={authorImageUrl}
-              alt="Matthew Danielson" 
+              // Optional: You might want to update the alt text since it's now a book, not the person
+              alt="Survival Protocol Open Manual" 
               className="w-full h-full object-cover opacity-80"
             />
           </div>
@@ -43,7 +46,7 @@ const About: React.FC = () => {
 
           <div className="space-y-6 text-gray-400 text-sm leading-loose uppercase tracking-widest">
             <p>Matthew Danielson is a researcher and outdoorsman whose expertise is rooted in a lifetime of firsthand experience.</p>
-            <p>Born and raised in Ontario, Canada, his foundation in self-reliance began in the rugged Canadian wilderness. Eschewing traditional academic or military paths, Matthew build his knowledge through rigorous independent research.</p>
+            <p>Born and raised in Ontario, Canada, his foundation in self-reliance began in the rugged Canadian wilderness. Eschewing traditional academic or military paths, Matthew built his knowledge through rigorous independent research.</p>
             <p>His education, combined with practical experience navigating remote waterways, serves as the filter through which this entire guide was written.</p>
           </div>
 

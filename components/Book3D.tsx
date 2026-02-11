@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Book3D: React.FC = () => {
-  const coverImageUrl = "https://lh3.googleusercontent.com/sitesv/AAzXCkeSBtlN0NQxr3gE9HC9AvVLXm3e3YhN4XmEGiDkbnB4K_yh9-q6-wZ1UjnI6vvpUiUb2cquNIxliZzpuKWAZKeL4amMnQ4uaOTuAmbzcr47cyiUrnusCiKtGkMX8CAp64HE8pHZD4M5SK7_a3YkRugvb_PsJ0DKveazRenlW4ChkBj_b3uLXnLX6oJWvTbDP4VmIZXGIOwVNNkxkpqvnHmy1-8xbjWO-8h5n9g=w1280";
+  // Updated to point to your public image folder
+  const coverImageUrl = "/images/book-cover.png"; 
 
   return (
     <div className="relative group cursor-pointer" style={{ perspective: '1500px' }}>
