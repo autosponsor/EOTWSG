@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EOTWSG | End of the World Survival Guide</title>
     
-    <!-- OpenGraph / Facebook / SEO -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eotwsg.com/">
     <meta property="og:title" content="EOTWSG | End of the World Survival Guide">
     <meta property="og:description" content="A comprehensive manual for preparedness and resilience. Don't just survive. Build a better boat.">
     <meta property="og:image" content="https://lh3.googleusercontent.com/sitesv/AAzXCkeSBtlN0NQxr3gE9HC9AvVLXm3e3YhN4XmEGiDkbnB4K_yh9-q6-wZ1UjnI6vvpUiUb2cquNIxliZzpuKWAZKeL4amMnQ4uaOTuAmbzcr47cyiUrnusCiKtGkMX8CAp64HE8pHZD4M5SK7_a3YkRugvb_PsJ0DKveazRenlW4ChkBj_b3uLXnLX6oJWvTbDP4VmIZXGIOwVNNkxkpqvnHmy1-8xbjWO-8h5n9g=w1280">
 
-    <!-- JSON-LD Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,7 +29,6 @@
     }
     </script>
 
-    <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -90,6 +87,38 @@
             position: absolute;
             bottom: 100%;
             animation: scanline 10s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+
+        .preserve-3d { transform-style: preserve-3d; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body class="antialiased selection-orange noise">
+    <div id="root"></div>
+
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
         }
 
         @keyframes scanline {
