@@ -1,24 +1,22 @@
 [build]
-  # Build command for Vite apps
   command = "npm run build"
   publish = "dist"
 
-[build.processing]
-  [build.processing.css]
-    bundle = true
-    minify = true
-  [build.processing.js]
-    bundle = true
-    minify = true
-  [build.processing.html]
-    pretty_urls = true
-    minify = true
+[build.environment]
+  NODE_VERSION = "22"
 
-# Useful headers to increase security. Adjust domains in CSP to match the CDNs/APIs you actually use.
 [[headers]]
   for = "/*"
   [headers.values]
-    # This policy allows scripts, styles, and images from ANY URL (*), plus inline code.
-    Content-Security-Policy = "default-src 'self'; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob:; font-src * data:; connect-src *; frame-src *;"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self'; upgrade-insecure-requests"
+    Permissions-Policy = "camera=(), geolocation=(), microphone=(), payment=(), usb=()"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
 

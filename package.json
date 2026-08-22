@@ -1,23 +1,24 @@
 {
-  "name": "eotwsg-|-end-of-the-world-survival-guide",
+  "name": "eotwsg",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
-    "rollup": ">=4.59.0"
-}
+    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run build:static && npm run build:css && npm run build:js",
+    "build:static": "node scripts/build-static.mjs",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/assets/styles.css --minify",
+    "build:js": "esbuild ./assets/app.js --bundle --format=esm --target=es2022 --minify --outfile=./dist/assets/app.js",
+    "dev": "npm run build && node scripts/dev-server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check:static": "node scripts/check-static.mjs",
+    "check:bundle": "node scripts/check-bundle.mjs",
+    "check": "npm run build && npm test && npm run check:static && npm run check:bundle",
+    "audit:prod": "npm audit --omit=dev --audit-level=high"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "@tailwindcss/cli": "^4.3.3",
+    "esbuild": "^0.28.2",
+    "tailwindcss": "^4.3.3"
   }
 }
