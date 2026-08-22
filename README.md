@@ -1,67 +1,29 @@
+# EOTWSG
 
-# EOTWSG | End of the World Survival Guide
+EOTWSG is a **general educational** household-preparedness guide built with HTML5, Tailwind CSS, and vanilla JavaScript. It links readers to current public resources rather than presenting unsupported or individualized safety claims.
 
-A high-performance, tactical minimalist landing page designed for the launch of Matthew Danielson's comprehensive resilience manual. Built with a focus on psychological impact, security aesthetic, and professional-grade frontend architecture.
+## Scope and editorial approach
 
-## 🛠 Tech Stack
-- **Framework**: React 19 (ESM based)
-- **Styling**: Tailwind CSS (Utility-first, custom design tokens)
-- **Identity**: Netlify Identity (Authentication & Gated Content)
-- **Icons**: Custom SVG & FontAwesome simulated via SVG
-- **Architecture**: Context-API driven state management
+The guide is not emergency, medical, legal, or professional advice. It directs readers to local authorities for immediate emergencies and to public resources such as [Ready.gov](https://www.ready.gov/), the [American Red Cross](https://www.redcross.org/get-help/how-to-prepare-for-emergencies.html), and the [CDC Emergency Preparedness and Response](https://www.cdc.gov/Emergency/index.html) pages for current planning and health guidance.
 
-## 🧬 Key Features
-1. **Tactical Minimalism Aesthetic**: Slate/Charcoal palette with "Safety Orange" high-contrast CTAs.
-2. **3D Interactive Book**: CSS-based 3D transform mockup with glint effects and perspective rotation.
-3. **Secure Document Reader**: Chapter 1 preview with a simulated decryption/typing terminal effect.
-4. **Gated Intelligence**: Survival checklists require "Session Initiation" (Netlify Identity) to access deep-dive protocols.
-5. **Production Readiness**:
-   - Zero "God" components; logic is modularized into `context`, `constants`, and `components`.
-   - Optimized image handling with high-fidelity asset sourcing.
-   - Comprehensive error handling via `ErrorBoundary`.
-   - Tactical scroll entrance animations via `IntersectionObserver`.
+## Privacy and contact
 
-## 📂 Project Structure
-- `/components`: UI modules (Hero, Library, ChapterPreview, etc.)
-- `/context`: Global state (AuthContext)
-- `/constants`: Centralized asset URLs and checklist data
-- `App.tsx`: Orchestration layer
-- `index.html`: Entry point with custom tactical noise and scanning line overlays
+The public guide has no analytics, session replay, browser identity, or site-issued tracking cookies. The optional Netlify contact form collects only name, email, message, and the consent selection submitted by a reader. Do not submit credentials, payment information, medical information, or other sensitive personal data. The complete notice is at `/privacy.html`.
 
-## 🚀 Netlify Deployment Configuration
+## Local development
 
-Below is the `netlify.toml` configuration for ensuring professional deployment, header security, and routing.
-
-```toml
-[build]
-  publish = "."
-
-[build.processing]
-  [build.processing.css]
-    bundle = true
-    minify = true
-  [build.processing.js]
-    bundle = true
-    minify = true
-  [build.processing.html]
-    pretty_urls = true
-    minify = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "no-referrer"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-    Content-Security-Policy = "frame-ancestors 'none';"
+```bash
+npm ci --ignore-scripts
+npm run check
+PORT=4176 npm run dev
 ```
 
----
-*Stay Prepared. Build a better boat.*
+The local preview serves the generated `dist/` directory. It does not emulate Netlify Forms submission processing.
+
+## Deployment
+
+Netlify is the supported target. `netlify.toml` sets the static build/publish path and restrictive response headers. Before enabling the contact form, the project owner should review the Netlify Form retention and access configuration and establish a documented process for privacy/deletion requests.
+
+## Quality controls
+
+`npm run check` compiles the local Tailwind/vanilla static build, executes deterministic trust/privacy/accessibility tests, checks for prohibited runtime artifacts and weak CSP directives, and enforces an 180,000-byte CSS/JavaScript budget. `npm run audit:prod` fails on high or critical production dependency advisories. GitHub Actions repeats these checks after clean installation.
